@@ -6,7 +6,7 @@
 /*   By: mstaali <mstaali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 01:24:22 by mstaali           #+#    #+#             */
-/*   Updated: 2024/03/15 03:36:19 by mstaali          ###   ########.fr       */
+/*   Updated: 2024/03/16 21:47:00 by mstaali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ static int	ft_iswhitespace(int c)
 
 int	ft_atoi(const char *str)
 {
-	int	i;
-	int	sign;
-	int	result;
+	int		i;
+	int		sign;
+	long	result;
 
 	i = 0;
 	sign = 1;
@@ -38,15 +38,18 @@ int	ft_atoi(const char *str)
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
-		if (str[i] == '-')
+		if (str[i++] == '-')
 			sign *= (-1);
-		i++;
 	}
-	while (str[i] && ft_isdigit(str[i]))
+	if (!str[i])
+		error();
+	while (str[i])
 	{
-		result *= 10;
-		result += str[i] - '0';
-		i++;
+		if (!ft_isdigit(str[i]))
+			error();
+		result = (result * 10) + (str[i++] - '0');
+		if ((result * sign) > 2147483647 || (result * sign) < -2147483648)
+			error();
 	}
 	return (result * sign);
 }
