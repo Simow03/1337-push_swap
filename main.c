@@ -6,7 +6,7 @@
 /*   By: mstaali <mstaali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 21:06:03 by mstaali           #+#    #+#             */
-/*   Updated: 2024/03/16 21:48:04 by mstaali          ###   ########.fr       */
+/*   Updated: 2024/03/17 18:02:14 by mstaali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ static t_stack	*fill_stack(int ac, char **av)
 {
 	t_stack	*a;
 	int		i;
+	int		j;
 
 	a = NULL;
 	if (ac < 2 || (ac == 2 && !av[1][0]))
@@ -46,7 +47,15 @@ static t_stack	*fill_stack(int ac, char **av)
 	{
 		i = 1;
 		while (i < ac)
-			a = fill_stack_quoted(av[i++]);
+		{
+			j = 0;
+			while (ft_iswhitespace(av[i][j]))
+				j++;
+			if (!av[i][j])
+				error();
+			a = fill_stack_quoted(av[i]);
+			i++;
+		}
 	}
 	return (a);
 }
@@ -58,12 +67,11 @@ int	main(int ac, char **av)
 	a = fill_stack(ac, av);
 	if (!a || is_duplicate(a))
 	{
-		//! check leaks
 		ft_lstclear(&a, free);
 		error();
 	}
 	if (!is_sorted(a))
-		algorithm(a);
+		algorithm(&a);
 	ft_lstclear(&a, free);
 	return (EXIT_SUCCESS);
 }
