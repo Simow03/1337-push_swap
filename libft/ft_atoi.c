@@ -6,7 +6,7 @@
 /*   By: mstaali <mstaali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 01:24:22 by mstaali           #+#    #+#             */
-/*   Updated: 2024/03/16 21:47:00 by mstaali          ###   ########.fr       */
+/*   Updated: 2024/03/17 17:35:21 by mstaali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,6 @@ static int	ft_isdigit(int c)
 	if (c >= '0' && c <= '9')
 		return (1);
 	return (0);
-}
-
-static int	ft_iswhitespace(int c)
-{
-	return (c == ' ' || c == '\t' || c == '\n' || c == '\r'
-		|| c == '\v' || c == '\f');
 }
 
 int	ft_atoi(const char *str)

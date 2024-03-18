@@ -6,7 +6,7 @@
 /*   By: mstaali <mstaali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 01:28:29 by mstaali           #+#    #+#             */
-/*   Updated: 2024/03/16 01:29:32 by mstaali          ###   ########.fr       */
+/*   Updated: 2024/03/17 17:36:13 by mstaali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@ void	error(void)
 {
 	ft_putstr_fd("Error", STDERR_FILENO);
 	exit(EXIT_FAILURE);
+}
+
+int	ft_iswhitespace(int c)
+{
+	return (c == ' ' || c == '\t' || c == '\n' || c == '\r'
+		|| c == '\v' || c == '\f');
 }
 
 int	is_duplicate(t_stack *a)
