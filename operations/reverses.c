@@ -6,7 +6,7 @@
 /*   By: mstaali <mstaali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 14:21:14 by mstaali           #+#    #+#             */
-/*   Updated: 2024/03/18 14:42:45 by mstaali          ###   ########.fr       */
+/*   Updated: 2024/03/18 17:38:41 by mstaali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ void	rra(t_stack **a)
 
 	if (!*a || !(*a)->next)
 		return ;
-	tmp = (*a);
-	ft_lstlast(*a);
-	(*a)->next = tmp;
 	size = ft_lstsize(*a) - 1;
+	tmp = (*a);
+	*a = ft_lstlast(*a);
+	(*a)->next = tmp;
 	while (size > 1)
 	{
 		tmp = tmp->next;
