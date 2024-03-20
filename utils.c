@@ -6,7 +6,7 @@
 /*   By: mstaali <mstaali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 01:28:29 by mstaali           #+#    #+#             */
-/*   Updated: 2024/03/17 17:36:13 by mstaali          ###   ########.fr       */
+/*   Updated: 2024/03/20 03:43:41 by mstaali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,13 @@ int	is_duplicate(t_stack *a)
 	return (0);
 }
 
-int	is_sorted(t_stack *a)
+int	is_sorted(t_stack *stack)
 {
 	t_stack	*tmp;
 	int		curr_val;
 	int		next_val;
 
-	tmp = a;
+	tmp = stack;
 	while (tmp && tmp->next)
 	{
 		curr_val = tmp->value;

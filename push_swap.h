@@ -6,7 +6,7 @@
 /*   By: mstaali <mstaali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 00:21:08 by mstaali           #+#    #+#             */
-/*   Updated: 2024/03/18 16:14:13 by mstaali          ###   ########.fr       */
+/*   Updated: 2024/03/20 03:43:52 by mstaali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	error(void);
 int		ft_iswhitespace(int c);
 void	algorithm(t_stack **a);
 int		is_duplicate(t_stack *a);
-int		is_sorted(t_stack *a);
+int		is_sorted(t_stack *stack);
 
 /* Libft */
 size_t	ft_strlen(const char *str);

@@ -6,25 +6,11 @@
 /*   By: mstaali <mstaali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 21:53:33 by mstaali           #+#    #+#             */
-/*   Updated: 2024/03/18 17:39:09 by mstaali          ###   ########.fr       */
+/*   Updated: 2024/03/20 03:55:22 by mstaali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	min(t_stack *a)
-{
-	int	min;
-
-	min = a->value;
-	while (a != NULL)
-	{
-		if (min > a->value)
-			min = a->value;
-		a = a->next;
-	}
-	return (min);
-}
 
 int	max(t_stack *a)
 {
@@ -40,36 +26,72 @@ int	max(t_stack *a)
 	return (max);
 }
 
+int	min(t_stack *a)
+{
+	int	min;
+
+	min = a->value;
+	while (a != NULL)
+	{
+		if (min > a->value)
+			min = a->value;
+		a = a->next;
+	}
+	return (min);
+}
+
 void	sort_three(t_stack **a)
 {
-	t_stack	*tmp;
+	if (max(*a) == (*a)->value)
+		ra(a);
+	else if (max(*a) == (*a)->next->value)
+		rra(a);
+	if ((*a)->value > (*a)->next->value)
+		sa(a);
+}
 
-	tmp = ft_lstlast(*a);
-	if (min(*a) == (*a)->value)
+void	push_min(t_stack **a, t_stack **b)
+{
+	t_stack *last = ft_lstlast(*a);
+	if (min(*a) == (*a)->next->value)
+		sa(a);
+	if (min(*a) == (*a)->next->next->value)
 	{
-		sa(a);
 		ra(a);
+		sa(a);
 	}
-	else if (max(*a) == (*a)->value && min(*a) == tmp->value)
+	if (min(*a) == last->value)
+		rra(a);
+	pb(a, b);
+}
+
+void	sort_five(t_stack **a, t_stack **b)
+{
+	int	size;
+
+	size = ft_lstsize(*a);
+	if (size-- > 3)
+		push_min(a, b);
+	if (size-- > 3)
 	{
-		sa(a);
-		rra(a);
+		push_min(a, b);
+		if ((*b)->value < (*b)->next->value)
+			sb(b);
 	}
-	else if (max(*a) == tmp->value)
-		sa(a);
-	else if (max(*a) == (*a)->next->value && min(*a) == tmp->value)
-		rra(a);
-	else if (max(*a) == (*a)->value && min(*a) == (*a)->next->value)
-		ra(a);
+	sort_three(a);
+	pa(a, b);
+	if (size == 3)
+		pa(a, b);
 }
 
 void	algorithm(t_stack **a)
 {
-	t_stack	*b;
+	t_stack *b;
 
-	b = NULL;
 	if (ft_lstsize(*a) == 2)
 		sa(a);
-	if (ft_lstsize(*a) == 3 && !is_sorted(*a))
+	else if (ft_lstsize(*a) == 3)
 		sort_three(a);
+	else if (ft_lstsize(*a) <= 5)
+		sort_five(a, &b);
 }
