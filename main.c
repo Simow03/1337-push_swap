@@ -6,7 +6,7 @@
 /*   By: mstaali <mstaali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 21:06:03 by mstaali           #+#    #+#             */
-/*   Updated: 2024/03/19 22:08:06 by mstaali          ###   ########.fr       */
+/*   Updated: 2024/03/22 20:53:12 by mstaali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,15 +63,17 @@ static t_stack	*fill_stack(int ac, char **av)
 int	main(int ac, char **av)
 {
 	t_stack	*a;
+	t_stack	*b;
 
 	a = fill_stack(ac, av);
+	b = NULL;
 	if (!a || is_duplicate(a))
 	{
 		ft_lstclear(&a, free);
 		error();
 	}
 	if (!is_sorted(a))
-		algorithm(&a);
+		algorithm(&a, &b);
 	ft_lstclear(&a, free);
 	return (EXIT_SUCCESS);
 }

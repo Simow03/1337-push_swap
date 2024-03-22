@@ -6,7 +6,7 @@
 /*   By: mstaali <mstaali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 21:53:33 by mstaali           #+#    #+#             */
-/*   Updated: 2024/03/22 17:15:01 by mstaali          ###   ########.fr       */
+/*   Updated: 2024/03/22 21:23:10 by mstaali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,28 +41,26 @@ void	sort_five(t_stack **a, t_stack **b)
 		pa(a, b);
 }
 
+// void	push_back_to_a(t_stack **a, t_stack **b)
+// {
+	
+// }
+
 void	sort_full_stack(t_stack **a, t_stack **b)
 {
-	(void)b;
 	indexing(a);
+	push_to_b(a, b);
+	// push_back_to_a(a, b);
 }
 
-void	algorithm(t_stack **a)
+void	algorithm(t_stack **a, t_stack **b)
 {
-	t_stack	*b;
-
 	if (ft_lstsize(*a) == 2)
 		sa(a);
 	else if (ft_lstsize(*a) == 3)
 		sort_three(a);
 	else if (ft_lstsize(*a) <= 5)
-		sort_five(a, &b);
+		sort_five(a, b);
 	else
-		sort_full_stack(a, &b);
-	// t_stack *tmp = (*a);
-	// while (tmp != NULL)
-	// {
-	// 	printf("%d\t %d\n", tmp->value, tmp->index);
-	// 	tmp = tmp->next;
-	// }
+		sort_full_stack(a, b);
 }
