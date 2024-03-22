@@ -6,7 +6,7 @@
 /*   By: mstaali <mstaali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 01:28:29 by mstaali           #+#    #+#             */
-/*   Updated: 2024/03/20 03:43:41 by mstaali          ###   ########.fr       */
+/*   Updated: 2024/03/21 22:29:23 by mstaali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,6 @@ void	error(void)
 {
 	ft_putstr_fd("Error", STDERR_FILENO);
 	exit(EXIT_FAILURE);
-}
-
-int	ft_iswhitespace(int c)
-{
-	return (c == ' ' || c == '\t' || c == '\n' || c == '\r'
-		|| c == '\v' || c == '\f');
 }
 
 int	is_duplicate(t_stack *a)
@@ -58,4 +52,32 @@ int	is_sorted(t_stack *stack)
 		tmp = tmp->next;
 	}
 	return (1);
+}
+
+int	max(t_stack *stack)
+{
+	int	max;
+
+	max = stack->value;
+	while (stack != NULL)
+	{
+		if (max < stack->value)
+			max = stack->value;
+		stack = stack->next;
+	}
+	return (max);
+}
+
+int	min(t_stack *stack)
+{
+	int	min;
+
+	min = stack->value;
+	while (stack != NULL)
+	{
+		if (min > stack->value)
+			min = stack->value;
+		stack = stack->next;
+	}
+	return (min);
 }

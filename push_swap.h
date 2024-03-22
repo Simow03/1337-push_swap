@@ -6,7 +6,7 @@
 /*   By: mstaali <mstaali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 00:21:08 by mstaali           #+#    #+#             */
-/*   Updated: 2024/03/20 03:43:52 by mstaali          ###   ########.fr       */
+/*   Updated: 2024/03/22 17:13:52 by mstaali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef struct s_stack
 {
 	int				value;
 	int				index;
+	int				is_taken;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -37,12 +38,20 @@ void	rra(t_stack **a);
 void	rrb(t_stack **b);
 void	rrr(t_stack **a, t_stack **b);
 
+/* Algorithm */
+void	indexing(t_stack **a);
+void	give_index(t_stack *a, int index, int value);
+int		next_min(t_stack *stack, int min_value);
+
 /* Utils */
 void	error(void);
 int		ft_iswhitespace(int c);
 void	algorithm(t_stack **a);
 int		is_duplicate(t_stack *a);
 int		is_sorted(t_stack *stack);
+int		max(t_stack *stack);
+int		min(t_stack *stack);
+void	push_min(t_stack **a, t_stack **b);
 
 /* Libft */
 size_t	ft_strlen(const char *str);
