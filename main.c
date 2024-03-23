@@ -6,7 +6,7 @@
 /*   By: mstaali <mstaali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 21:06:03 by mstaali           #+#    #+#             */
-/*   Updated: 2024/03/23 20:53:45 by mstaali          ###   ########.fr       */
+/*   Updated: 2024/03/23 22:29:17 by mstaali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,8 @@ void	error(void)
 	exit(EXIT_FAILURE);
 }
 
-static t_stack	*fill_stack_quoted(char *av)
+void	fill_stack_quoted(char *av, t_stack **a)
 {
-	t_stack	*a;
 	char	**numbers;
 	int		i;
 	int		num;
@@ -30,14 +29,13 @@ static t_stack	*fill_stack_quoted(char *av)
 	while (numbers[i])
 	{
 		num = ft_atoi(numbers[i]);
-		ft_lstadd_back(&a, ft_lstnew(&num));
+		ft_lstadd_back(a, ft_lstnew(&num));
 		i++;
 	}
 	i = 0;
 	while (numbers[i])
 		free(numbers[i++]);
 	free(numbers);
-	return (a);
 }
 
 static t_stack	*fill_stack(int ac, char **av)
@@ -59,7 +57,7 @@ static t_stack	*fill_stack(int ac, char **av)
 				j++;
 			if (!av[i][j])
 				error();
-			a = fill_stack_quoted(av[i]);
+			fill_stack_quoted(av[i], &a);
 			i++;
 		}
 	}

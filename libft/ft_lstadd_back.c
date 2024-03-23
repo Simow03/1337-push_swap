@@ -6,7 +6,7 @@
 /*   By: mstaali <mstaali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 17:53:28 by mstaali           #+#    #+#             */
-/*   Updated: 2024/03/15 02:26:47 by mstaali          ###   ########.fr       */
+/*   Updated: 2024/03/23 21:55:49 by mstaali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ void	ft_lstadd_back(t_stack **lst, t_stack *new)
 {
 	t_stack	*tmp;
 
-	if (!lst)
-		return ;
 	if (*lst == NULL)
 		*lst = new;
 	else
