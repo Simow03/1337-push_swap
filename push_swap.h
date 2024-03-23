@@ -6,7 +6,7 @@
 /*   By: mstaali <mstaali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 00:21:08 by mstaali           #+#    #+#             */
-/*   Updated: 2024/03/22 21:20:17 by mstaali          ###   ########.fr       */
+/*   Updated: 2024/03/22 21:49:56 by mstaali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ typedef struct s_stack
 {
 	int				value;
 	int				index;
-	int				is_taken;
+	int				position;
+	int				moves;
 	struct s_stack	*next;
 }	t_stack;
 
