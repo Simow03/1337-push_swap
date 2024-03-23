@@ -6,16 +6,22 @@
 /*   By: mstaali <mstaali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 01:28:29 by mstaali           #+#    #+#             */
-/*   Updated: 2024/03/21 22:29:23 by mstaali          ###   ########.fr       */
+/*   Updated: 2024/03/23 20:53:31 by mstaali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	error(void)
+void	positioning(t_stack *stack)
 {
-	ft_putstr_fd("Error", STDERR_FILENO);
-	exit(EXIT_FAILURE);
+	int	position;
+
+	position = 0;
+	while (stack != NULL)
+	{
+		stack->position = position++;
+		stack = stack->next;
+	}
 }
 
 int	is_duplicate(t_stack *a)

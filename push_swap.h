@@ -6,7 +6,7 @@
 /*   By: mstaali <mstaali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/11 00:21:08 by mstaali           #+#    #+#             */
-/*   Updated: 2024/03/22 21:49:56 by mstaali          ###   ########.fr       */
+/*   Updated: 2024/03/23 20:55:24 by mstaali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ int		next_min(t_stack *stack, int min_value);
 
 /* Utils */
 void	error(void);
-int		ft_iswhitespace(int c);
 void	algorithm(t_stack **a, t_stack **b);
 int		is_duplicate(t_stack *a);
 int		is_sorted(t_stack *stack);
@@ -54,8 +53,13 @@ int		max(t_stack *stack);
 int		min(t_stack *stack);
 void	push_min(t_stack **a, t_stack **b);
 void	push_to_b(t_stack **a, t_stack **b);
+void	push_back_to_a(t_stack **a, t_stack **b);
+t_stack	*largest_index(t_stack *stack);
+void	swap_to_top(t_stack *to_push, t_stack **b);
+void	positioning(t_stack *stack);
 
 /* Libft */
+int		ft_iswhitespace(int c);
 size_t	ft_strlen(const char *str);
 int		ft_atoi(const char *str);
 char	*ft_substr(char const *s, unsigned int start, size_t len);

@@ -6,11 +6,17 @@
 /*   By: mstaali <mstaali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 21:06:03 by mstaali           #+#    #+#             */
-/*   Updated: 2024/03/22 20:53:12 by mstaali          ###   ########.fr       */
+/*   Updated: 2024/03/23 20:53:45 by mstaali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	error(void)
+{
+	ft_putstr_fd("Error\n", STDERR_FILENO);
+	exit(EXIT_FAILURE);
+}
 
 static t_stack	*fill_stack_quoted(char *av)
 {
@@ -75,5 +81,6 @@ int	main(int ac, char **av)
 	if (!is_sorted(a))
 		algorithm(&a, &b);
 	ft_lstclear(&a, free);
+	ft_lstclear(&b, free);
 	return (EXIT_SUCCESS);
 }

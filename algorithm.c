@@ -6,7 +6,7 @@
 /*   By: mstaali <mstaali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 21:53:33 by mstaali           #+#    #+#             */
-/*   Updated: 2024/03/23 02:32:45 by mstaali          ###   ########.fr       */
+/*   Updated: 2024/03/23 20:53:14 by mstaali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,75 +39,6 @@ void	sort_five(t_stack **a, t_stack **b)
 	pa(a, b);
 	if (size == 3)
 		pa(a, b);
-}
-
-t_stack	*largest_index(t_stack *stack)
-{
-	t_stack *largest;
-	int		index;
-
-	index = 0;
-	while (stack != NULL)
-	{
-		if (index < stack->index)
-		{
-			largest = stack;
-			index = stack->index;
-		}
-		stack = stack->next;
-	}
-	return (largest);
-}
-
-void	swap_to_top(t_stack *to_push, t_stack **b)
-{
-	while (to_push->moves && to_push->moves > 0)
-	{
-		rb(b);
-		to_push->moves--;
-	}
-	while (to_push->moves && to_push->moves < 0)
-	{
-		rrb(b);
-		to_push->moves++;
-	}
-}
-
-void	positioning(t_stack *stack)
-{
-	int	position;
-
-	position = 0;
-	while (stack != NULL)
-	{
-		stack->position = position++;
-		stack = stack->next;
-	}
-}
-
-void	push_back_to_a(t_stack **a, t_stack **b)
-{
-	t_stack	*to_push;
-	int		size;
-
-	size = ft_lstsize(*b);
-	while (size)
-	{
-		if (size == 1)
-		{
-			pa(a, b);
-			return ;
-		}
-		positioning(*b);
-		to_push = largest_index(*b);
-		if (to_push->position > (size / 2))
-			to_push->moves = to_push->position - size;
-		else
-			to_push->moves = to_push->position;
-		swap_to_top(to_push, b);
-		pa(a, b);
-		size--;
-	}
 }
 
 void	sort_full_stack(t_stack **a, t_stack **b)

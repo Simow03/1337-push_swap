@@ -6,7 +6,7 @@
 /*   By: mstaali <mstaali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 17:11:43 by mstaali           #+#    #+#             */
-/*   Updated: 2024/03/22 17:34:17 by mstaali          ###   ########.fr       */
+/*   Updated: 2024/03/23 20:57:03 by mstaali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	next_min(t_stack *stack, int min_value)
 {
-	int next;
+	int	next;
 
 	next = max(stack);
 	while (stack != NULL)
@@ -36,9 +36,9 @@ void	give_index(t_stack *a, int index, int value)
 void	indexing(t_stack **a)
 {
 	t_stack	*tmp;
-	int min_value;
-	int next;
-	int	i;
+	int		min_value;
+	int		next;
+	int		i;
 
 	i = 0;
 	tmp = (*a);
