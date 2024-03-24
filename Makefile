@@ -6,7 +6,7 @@
 #    By: mstaali <mstaali@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/15 03:11:42 by mstaali           #+#    #+#              #
-#    Updated: 2024/03/23 21:59:59 by mstaali          ###   ########.fr        #
+#    Updated: 2024/03/24 04:16:05 by mstaali          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,11 @@ M_SOURCES = main.c utils.c algorithm.c algo_utils.c indexing.c operations/swaps.
 	libft/ft_atoi.c libft/ft_lstclear.c libft/ft_lstnew.c libft/ft_lstsize.c libft/ft_lstadd_back.c \
 	libft/ft_lstlast.c libft/ft_iswhitespace.c libft/ft_putstr_fd.c
 
-B_SOURCES = bonus/checker_bonus.c
+B_SOURCES = bonus/checker_bonus.c bonus/utils_bonus.c utils.c operations/swaps.c operations/rotates.c \
+	operations/pushs.c operations/reverses.c libft/ft_atoi.c libft/ft_lstclear.c libft/ft_lstnew.c \
+	libft/ft_lstlast.c libft/ft_iswhitespace.c libft/ft_putstr_fd.c libft/ft_substr.c libft/ft_split.c \
+	libft/ft_strlen.c libft/ft_lstsize.c libft/ft_lstadd_back.c libft/ft_strchr.c libft/ft_strjoin.c \
+	libft/ft_strncmp.c
 
 M_OBJECTS = $(M_SOURCES:.c=.o)
 

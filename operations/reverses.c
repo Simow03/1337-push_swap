@@ -6,13 +6,13 @@
 /*   By: mstaali <mstaali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 14:21:14 by mstaali           #+#    #+#             */
-/*   Updated: 2024/03/23 21:50:54 by mstaali          ###   ########.fr       */
+/*   Updated: 2024/03/24 04:07:30 by mstaali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	rra(t_stack **a)
+void	rra(t_stack **a, int n)
 {
 	t_stack	*tmp;
 	int		size;
@@ -29,10 +29,11 @@ void	rra(t_stack **a)
 		size--;
 	}
 	tmp->next = NULL;
-	ft_putstr_fd("rra\n", 1);
+	if (n == 1)
+		ft_putstr_fd("rra\n", 1);
 }
 
-void	rrb(t_stack **b)
+void	rrb(t_stack **b, int n)
 {
 	t_stack	*tmp;
 	int		size;
@@ -49,12 +50,14 @@ void	rrb(t_stack **b)
 		size--;
 	}
 	tmp->next = NULL;
-	ft_putstr_fd("rrb\n", 1);
+	if (n == 1)
+		ft_putstr_fd("rrb\n", 1);
 }
 
-void	rrr(t_stack **a, t_stack **b)
+void	rrr(t_stack **a, t_stack **b, int n)
 {
-	rra(a);
-	rrb(b);
-	ft_putstr_fd("rrr\n", 1);
+	rra(a, 0);
+	rrb(b, 0);
+	if (n == 1)
+		ft_putstr_fd("rrr\n", 1);
 }

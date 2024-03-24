@@ -6,13 +6,13 @@
 /*   By: mstaali <mstaali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 23:31:35 by mstaali           #+#    #+#             */
-/*   Updated: 2024/03/23 21:50:57 by mstaali          ###   ########.fr       */
+/*   Updated: 2024/03/24 04:07:36 by mstaali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ra(t_stack **a)
+void	ra(t_stack **a, int n)
 {
 	t_stack	*tmp;
 
@@ -23,10 +23,11 @@ void	ra(t_stack **a)
 	(*a)->next = tmp;
 	(*a) = tmp->next;
 	tmp->next = NULL;
-	ft_putstr_fd("ra\n", 1);
+	if (n == 1)
+		ft_putstr_fd("ra\n", 1);
 }
 
-void	rb(t_stack **b)
+void	rb(t_stack **b, int n)
 {
 	t_stack	*tmp;
 
@@ -37,12 +38,14 @@ void	rb(t_stack **b)
 	(*b)->next = tmp;
 	(*b) = tmp->next;
 	tmp->next = NULL;
-	ft_putstr_fd("rb\n", 1);
+	if (n == 1)
+		ft_putstr_fd("rb\n", 1);
 }
 
-void	rr(t_stack **a, t_stack **b)
+void	rr(t_stack **a, t_stack **b, int n)
 {
-	ra(a);
-	rb(b);
-	ft_putstr_fd("rr\n", 1);
+	ra(a, 0);
+	rb(b, 0);
+	if (n == 1)
+		ft_putstr_fd("rr\n", 1);
 }

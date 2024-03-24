@@ -6,7 +6,7 @@
 /*   By: mstaali <mstaali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 00:45:52 by mstaali           #+#    #+#             */
-/*   Updated: 2024/03/23 21:50:31 by mstaali          ###   ########.fr       */
+/*   Updated: 2024/03/24 04:09:04 by mstaali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ void	swap_to_top(t_stack *to_push, t_stack **b)
 {
 	while (to_push->moves && to_push->moves > 0)
 	{
-		rb(b);
+		rb(b, 1);
 		to_push->moves--;
 	}
 	while (to_push->moves && to_push->moves < 0)
 	{
-		rrb(b);
+		rrb(b, 1);
 		to_push->moves++;
 	}
 }
@@ -51,24 +51,24 @@ void	push_min(t_stack **a, t_stack **b)
 	last = ft_lstlast(*a);
 	if (min(*a) == (*a)->value)
 	{
-		pb(a, b);
+		pb(a, b, 1);
 		return ;
 	}
 	if (min(*a) == (*a)->next->value)
-		sa(a);
+		sa(a, 1);
 	else if (min(*a) == (*a)->next->next->value)
 	{
-		ra(a);
-		sa(a);
+		ra(a, 1);
+		sa(a, 1);
 	}
 	else if (min(*a) == last->value)
-		rra(a);
+		rra(a, 1);
 	else
 	{
-		rra(a);
-		rra(a);
+		rra(a, 1);
+		rra(a, 1);
 	}
-	pb(a, b);
+	pb(a, b, 1);
 }
 
 void	push_to_b(t_stack **a, t_stack **b)
@@ -84,17 +84,17 @@ void	push_to_b(t_stack **a, t_stack **b)
 	{
 		if ((*a)->index <= i)
 		{
-			pb(a, b);
+			pb(a, b, 1);
 			i++;
 		}
 		else if ((*a)->index < i + z)
 		{
-			pb(a, b);
-			rb(b);
+			pb(a, b, 1);
+			rb(b, 1);
 			i++;
 		}
 		else
-			ra(a);
+			ra(a, 1);
 	}
 }
 
@@ -108,7 +108,7 @@ void	push_back_to_a(t_stack **a, t_stack **b)
 	{
 		if (size == 1)
 		{
-			pa(a, b);
+			pa(a, b, 1);
 			return ;
 		}
 		positioning(*b);
@@ -118,7 +118,7 @@ void	push_back_to_a(t_stack **a, t_stack **b)
 		else
 			to_push->moves = to_push->position;
 		swap_to_top(to_push, b);
-		pa(a, b);
+		pa(a, b, 1);
 		size--;
 	}
 }

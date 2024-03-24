@@ -1,41 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pushs.c                                            :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mstaali <mstaali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/18 14:14:00 by mstaali           #+#    #+#             */
-/*   Updated: 2024/03/24 04:04:28 by mstaali          ###   ########.fr       */
+/*   Created: 2024/03/24 03:50:17 by mstaali           #+#    #+#             */
+/*   Updated: 2024/03/24 03:51:53 by mstaali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	pa(t_stack **a, t_stack **b, int n)
+int	ft_strncmp(const char *str1, const char *str2, size_t size)
 {
-	t_stack	*tmp;
+	size_t			i;
+	unsigned char	*s1;
+	unsigned char	*s2;
 
-	if (!*b)
-		return ;
-	tmp = *a;
-	*a = *b;
-	(*b) = (*b)->next;
-	(*a)->next = tmp;
-	if (n == 1)
-		ft_putstr_fd("pa\n", 1);
-}
-
-void	pb(t_stack **a, t_stack **b, int n)
-{
-	t_stack	*tmp;
-
-	if (!*a)
-		return ;
-	tmp = *b;
-	*b = *a;
-	(*a) = (*a)->next;
-	(*b)->next = tmp;
-	if (n == 1)
-		ft_putstr_fd("pb\n", 1);
+	i = 0;
+	s1 = (unsigned char *)str1;
+	s2 = (unsigned char *)str2;
+	if (size == 0 || (!s1 && !s2))
+		return (0);
+	while (i < (size - 1) && s1[i] == s2[i] && (s1[i] || s2[i]))
+		i++;
+	return (s1[i] - s2[i]);
 }

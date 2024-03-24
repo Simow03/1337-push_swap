@@ -6,7 +6,7 @@
 /*   By: mstaali <mstaali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 21:53:33 by mstaali           #+#    #+#             */
-/*   Updated: 2024/03/23 20:53:14 by mstaali          ###   ########.fr       */
+/*   Updated: 2024/03/24 04:08:16 by mstaali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 void	sort_three(t_stack **a)
 {
 	if (max(*a) == (*a)->value)
-		ra(a);
+		ra(a, 1);
 	else if (max(*a) == (*a)->next->value)
-		rra(a);
+		rra(a, 1);
 	if ((*a)->value > (*a)->next->value)
-		sa(a);
+		sa(a, 1);
 }
 
 void	sort_five(t_stack **a, t_stack **b)
@@ -33,12 +33,12 @@ void	sort_five(t_stack **a, t_stack **b)
 	{
 		push_min(a, b);
 		if ((*b)->value < (*b)->next->value)
-			sb(b);
+			sb(b, 1);
 	}
 	sort_three(a);
-	pa(a, b);
+	pa(a, b, 1);
 	if (size == 3)
-		pa(a, b);
+		pa(a, b, 1);
 }
 
 void	sort_full_stack(t_stack **a, t_stack **b)
@@ -51,7 +51,7 @@ void	sort_full_stack(t_stack **a, t_stack **b)
 void	algorithm(t_stack **a, t_stack **b)
 {
 	if (ft_lstsize(*a) == 2)
-		sa(a);
+		sa(a, 1);
 	else if (ft_lstsize(*a) == 3)
 		sort_three(a);
 	else if (ft_lstsize(*a) <= 5)
