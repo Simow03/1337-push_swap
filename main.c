@@ -6,7 +6,7 @@
 /*   By: mstaali <mstaali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 21:06:03 by mstaali           #+#    #+#             */
-/*   Updated: 2024/03/23 22:29:17 by mstaali          ###   ########.fr       */
+/*   Updated: 2024/04/23 16:16:48 by mstaali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ int	main(int ac, char **av)
 	t_stack	*a;
 	t_stack	*b;
 
+	if (ac == 1)
+		return (EXIT_FAILURE);
 	a = fill_stack(ac, av);
 	b = NULL;
 	if (!a || is_duplicate(a))

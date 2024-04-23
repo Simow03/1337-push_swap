@@ -6,7 +6,7 @@
 /*   By: mstaali <mstaali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 21:00:52 by mstaali           #+#    #+#             */
-/*   Updated: 2024/03/24 04:16:56 by mstaali          ###   ########.fr       */
+/*   Updated: 2024/04/23 17:17:42 by mstaali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static t_stack	*fill_stack(int ac, char **av)
 
 void	checker(t_stack **a, t_stack **b, char *line)
 {
-	while (line && line[0] != '\n')
+	while (line)
 		line = compare(a, b, line);
 	if (*b != NULL)
 		write(1, "KO\n", 3);
@@ -83,6 +83,8 @@ int	main(int ac, char **av)
 	t_stack	*b;
 	char	*line;
 
+	if (ac == 1)
+		return (EXIT_FAILURE);
 	a = fill_stack(ac, av);
 	b = NULL;
 	if (!a || is_duplicate(a))

@@ -6,7 +6,7 @@
 /*   By: mstaali <mstaali@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 00:45:52 by mstaali           #+#    #+#             */
-/*   Updated: 2024/03/24 04:09:04 by mstaali          ###   ########.fr       */
+/*   Updated: 2024/04/23 16:14:17 by mstaali          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	push_to_b(t_stack **a, t_stack **b)
 
 	i = 0;
 	z = 16;
-	if (ft_lstsize(*a) >= 500)
+	if (ft_lstsize(*a) >= 100)
 		z = 34;
 	while (*a)
 	{
