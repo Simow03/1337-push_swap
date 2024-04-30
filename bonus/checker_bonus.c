@@ -70,7 +70,7 @@ void	checker(t_stack **a, t_stack **b, char *line)
 		line = compare(a, b, line);
 	if (*b != NULL)
 		write(1, "KO\n", 3);
-	if (!is_sorted(*a))
+	else if (!is_sorted(*a))
 		write(1, "KO\n", 3);
 	else
 		write(1, "OK\n", 3);
